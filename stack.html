@@ -29,6 +29,7 @@
     <button onclick="makeNewDiv()">Push value</button>
     <button onclick="popItem()">Pop</button>
     <button onclick="zap()">Zap value</button>
+    <button onclick="unique()">Unique</button>
     <br>
     <br>
     <div class="flex-container" id="target">
@@ -58,16 +59,38 @@
         }
     }
     function zap() {
-        count = 0
+        count = 0;
+        let deleteArr =[];
         stackItems = document.getElementsByClassName("stack")
         value = document.getElementById("form_input").value
         for (item of stackItems) {
             if (item.innerHTML == value) {
-                stackItems[count].remove();
+               deleteArr.push(item);
             }
             count += 1
         }
+        for(let i=0; i <deleteArr.length;i++) {
+            deleteArr[i].remove()
+        }
         console.log("We are getting rid of all elements with '" + value + "'")
+		
+	}
+
+    function unique(){
+        let stackItems = document.getElementByClassName("stack");
+        let items = {}
+        let rlist = [];
+        for(let el of stackItems){
+            if(items[e1.innerHTML]){
+                rlist.push(e1)
+            } else {
+                items[e1.innerHTML]=1
+            }
+
+        }
+        rlist.forEach(e1 => {
+            e1.remove()
+        })
     }
     
 </script>
